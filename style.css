@@ -15,5 +15,13 @@
 .board-pixel {
     box-sizing: border-box;
     background-color: black;
-    border: 2px solid black;
+    border: 1px solid black;
+}
+
+input[type="number"] {
+    width: 40px;
+}
+
+button {
+    width: 140px;
 }
