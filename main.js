@@ -15,6 +15,7 @@ function paintPixel() {
 function tryPaint() {
     if (!mouseDown) return;
     this.style.backgroundColor = "white";
+    // TODO: advanced: add 10% black each entrance + down or click
 }
 
 function createCanvas(row, col, canvasWidth) {
@@ -36,4 +37,16 @@ function createCanvas(row, col, canvasWidth) {
 }
 
 
-createCanvas(12, 12, 400);
+createCanvas(30, 30, 400);
+
+/*
+TODOs:
+- etch a sketch model aesthetic
+-- swap out font for deluxe 1800s aesthetic
+- do a slideout tab at the bottom with the settings:
+-- row, height customization
+-- radio buttons to toggle between classic, wild, and layered modes
+-- apply button to apply
+-- reset button
+
+*/
