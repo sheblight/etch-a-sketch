@@ -1,0 +1,19 @@
+.content {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+.board {
+    margin: 0 auto;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.board-pixel {
+    box-sizing: border-box;
+    background-color: black;
+    border: 2px solid black;
+}
