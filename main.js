@@ -1,7 +1,8 @@
+const canvasWidth = 400;
 let mouseDown = false;
 let currentColumns = 20;
 let currentRows = 20;
-const canvasWidth = 400;
+let currentBrush = "classic";
 
 function notifyMouseDown() {
     mouseDown = true;
@@ -11,13 +12,26 @@ function notifyMouseUp() {
     mouseDown = false;
 }
 
+function getColorByBrush(backgroundColor) {
+    switch (currentBrush) {
+        case "crazy":
+            // Source: css-tricks
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            return "#"+randomColor;
+        case "control":
+            return "black";
+        default: 
+            return "white";
+    }
+}
+
 function paintPixel() {
-    this.style.backgroundColor = "white";
+    this.style.backgroundColor = getColorByBrush(this.style.backgroundColor);
 }
 
 function tryPaint() {
     if (!mouseDown) return;
-    this.style.backgroundColor = "white";
+    this.style.backgroundColor = getColorByBrush(this.style.backgroundColor);
     // TODO: advanced: add 10% black each entrance + down or click
 }
 
@@ -76,10 +90,12 @@ function applySettings() {
     }
 }
 
-
-
+function swapBrush() {
+    currentBrush = this.value;
+}
 
 let applyButton = document.querySelector("button.apply");
+let radioButtons = document.querySelectorAll("input[type=\"radio\"]");
 const columnInput = document.getElementById("col-count");
 const rowInput = document.getElementById("row-count");
 
@@ -88,6 +104,9 @@ rowInput.value = 20;
 columnInput.addEventListener("input", toggleApplyOrClear);
 rowInput.addEventListener("input", toggleApplyOrClear);
 applyButton.addEventListener("click", applySettings);
+radioButtons.forEach(btn => {
+    btn.addEventListener("click", swapBrush);
+});
 
 createCanvas(currentColumns, currentRows, canvasWidth);
 
@@ -96,6 +115,5 @@ TODOs:
 - etch a sketch model aesthetic
 -- swap out font for deluxe 1800s aesthetic
 - do a slideout tab at the bottom with the settings:
--- radio buttons to toggle between classic, wild, and layered modes
 
 */
