@@ -14,12 +14,10 @@ function notifyMouseUp() {
 
 function getColorByBrush(backgroundColor) {
     switch (currentBrush) {
-        case "crazy":
+        case "random":
             // Source: css-tricks
             const randomColor = Math.floor(Math.random()*16777215).toString(16);
             return "#"+randomColor;
-        case "control":
-            return "black";
         default: 
             return "white";
     }
