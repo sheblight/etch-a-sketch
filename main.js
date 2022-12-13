@@ -109,11 +109,3 @@ radioButtons.forEach(btn => {
 });
 
 createCanvas(currentColumns, currentRows, canvasWidth);
-
-/*
-TODOs:
-- etch a sketch model aesthetic
--- swap out font for deluxe 1800s aesthetic
-- do a slideout tab at the bottom with the settings:
-
-*/
