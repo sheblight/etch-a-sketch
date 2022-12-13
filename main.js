@@ -6,10 +6,12 @@ let currentBrush = "classic";
 
 function notifyMouseDown() {
     mouseDown = true;
+    console.log("mousedown");
 }
 
 function notifyMouseUp() {
     mouseDown = false;
+    console.log("mouseup");
 }
 
 function getColorByBrush(backgroundColor) {
@@ -30,14 +32,11 @@ function paintPixel() {
 function tryPaint() {
     if (!mouseDown) return;
     this.style.backgroundColor = getColorByBrush(this.style.backgroundColor);
-    // TODO: advanced: add 10% black each entrance + down or click
 }
 
 function createCanvas(col, row) {
     let board = document.querySelector("div.board");
     board.style.width = canvasWidth.toString()+"px";
-    board.addEventListener("mousedown", notifyMouseDown);
-    board.addEventListener("mouseup", notifyMouseUp);
 
     // generate pixels within the box
     for (let i=0; i<col*row; i++) {
@@ -92,6 +91,7 @@ function swapBrush() {
     currentBrush = this.value;
 }
 
+let body = document.querySelector("body");
 let applyButton = document.querySelector("button.apply");
 let radioButtons = document.querySelectorAll("input[type=\"radio\"]");
 const columnInput = document.getElementById("col-count");
@@ -99,6 +99,8 @@ const rowInput = document.getElementById("row-count");
 
 columnInput.value = 20;
 rowInput.value = 20;
+body.addEventListener("mousedown", notifyMouseDown);
+body.addEventListener("mouseup", notifyMouseUp);
 columnInput.addEventListener("input", toggleApplyOrClear);
 rowInput.addEventListener("input", toggleApplyOrClear);
 applyButton.addEventListener("click", applySettings);

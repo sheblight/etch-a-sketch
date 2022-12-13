@@ -2,6 +2,7 @@ body {
     background-color: rgb(32, 80, 70);
 }
 
+
 .content {
     background-color: #c73333;
     margin: 30px auto;
@@ -34,6 +35,7 @@ body {
 
 h1 {
     margin: 10px 0;
+    font-style: italic;
 }
 
 .canvas-settings {
